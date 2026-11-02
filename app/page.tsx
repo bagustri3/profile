@@ -126,7 +126,7 @@ export default function Page() {
         >
           <div className="portrait-frame">
             <Image
-              src="/profile-portrait.png"
+              src="https://bagustri3.github.io/profile/profile-portrait.png"
               alt="Portrait of Bagus Tri Prasetyo"
               fill
               priority
