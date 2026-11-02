@@ -7,8 +7,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
-  // basePath: "/portfolio",
-  // assetPrefix: "/portfolio/",
+  basePath: "/profile",
+  assetPrefix: "/profile/",
   allowedDevOrigins: ['192.168.1.11'],
 };
 
