@@ -266,6 +266,14 @@ export const profile = {
         "Aplikasi web fullstack untuk restoran dengan fitur dashboard manajemen dan integrasi omni-channel antara Toast App dan dashboard admin." /*[cite: 3] */,
       color: "blue",
     },
+    {
+      number: "06",
+      name: "SI-TC",
+      category: "Mobile Application · SI-TC",
+      description: "Video demonstrasi proyek SI-TC.",
+      color: "blue",
+      videoId: "-MFls9S-_Mg",
+    },
   ],
   certifications: [
     "Google UX Design Certificate",

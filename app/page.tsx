@@ -279,19 +279,39 @@ export default function Page() {
               key={project.name}
               whileHover={{ y: -6 }}
             >
-              <div className="project-art">
-                <span>{project.number}</span>
-                <div className="art-shape shape-one" />
-                <div className="art-shape shape-two" />
-                <ArrowUpRight className="project-arrow" />
-              </div>
+              {project.videoId && (
+                <div className="project-video">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${project.videoId}`}
+                    title={`Video ${project.name} di YouTube`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+              {!project.videoId && (
+                <div className="project-art">
+                  <span>{project.number}</span>
+                  <div className="art-shape shape-one" />
+                  <div className="art-shape shape-two" />
+                  <ArrowUpRight className="project-arrow" />
+                </div>
+              )}
               <div className="project-info">
                 <span>{project.category}</span>
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
-                {/* <a href="#contact" aria-label={"Ask about " + project.name}>
-                  <ExternalLink size={16} />
-                </a> */}
+                {project.videoId && (
+                  <a
+                    className="project-video-link"
+                    href={`https://www.youtube.com/watch?v=${project.videoId}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Buka di YouTube <ExternalLink size={14} />
+                  </a>
+                )}
               </div>
             </motion.article>
           ))}

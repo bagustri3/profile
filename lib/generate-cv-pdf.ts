@@ -2,6 +2,8 @@ import type { profile } from '@/data/profile'
 
 type Profile = typeof profile
 
+const portfolioUrl = 'https://bagustri3.github.io/profile'
+
 const escapeHtml = (value: string) =>
   value.replace(/[&<>'"]/g, (character) => ({
     '&': '&amp;',
@@ -42,6 +44,7 @@ export function generateCVPdf(data: Profile) {
       #cv-print-root .header { display: flex; justify-content: space-between; gap: 24px; padding-bottom: 18px; border-bottom: 3px solid #9caa8e; }
       #cv-print-root .title { margin-top: 7px; color: #6a7460; font-size: 12pt; }
       #cv-print-root .contact { text-align: right; color: #66635d; font-size: 9pt; }
+      #cv-print-root .portfolio-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
       #cv-print-root .intro { margin: 18px 0 0; font-size: 11pt; }
       #cv-print-root .experience, #cv-print-root .education { margin: 0 0 14px; page-break-inside: avoid; }
       #cv-print-root .row { display: flex; justify-content: space-between; gap: 16px; }
@@ -54,7 +57,7 @@ export function generateCVPdf(data: Profile) {
     }
   </style>
   <main class="cv-document">
-    <header class="header"><div><h1>${escapeHtml(data.name)}</h1><div class="title">${escapeHtml(data.title)}</div></div><div class="contact">${escapeHtml(data.location)}<br>${escapeHtml(data.email)}<br>${escapeHtml(data.phone)}</div></header>
+    <header class="header"><div><h1>${escapeHtml(data.name)}</h1><div class="title">${escapeHtml(data.title)}</div></div><div class="contact">${escapeHtml(data.location)}<br>${escapeHtml(data.email)}<br>${escapeHtml(data.phone)}<br><a class="portfolio-link" href="${escapeHtml(portfolioUrl)}">${escapeHtml(portfolioUrl.replace(/^https?:\/\//, ''))}</a></div></header>
     <p class="intro">${escapeHtml(data.about)}</p>
     <h2>Experience</h2>${experience}
     <h2>Education</h2>${education}
