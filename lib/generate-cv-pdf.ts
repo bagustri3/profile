@@ -27,6 +27,14 @@ export function generateCVPdf(data: Profile) {
   const education = data.education.map((item) => `
     <article class="education"><div class="row"><strong>${escapeHtml(item.degree)}</strong><span>${escapeHtml(item.year)}</span></div><p>${escapeHtml(item.school)} · ${escapeHtml(item.detail)}</p></article>`).join('')
 
+  const projects = data.projects.map((item) => `
+    <article class="project">
+      <div class="project-heading"><strong>${escapeHtml(item.number)} · ${escapeHtml(item.name)}</strong></div>
+      <b>${escapeHtml(item.category)}</b>
+      <p>${escapeHtml(item.description)}</p>
+      ${'videoId' in item ? `<a class="project-link" href="https://www.youtube.com/watch?v=${encodeURIComponent(item.videoId)}">Watch video on YouTube</a>` : ''}
+    </article>`).join('')
+
   const skills = Object.entries(data.skills).map(([group, values]) => `<div><strong>${escapeHtml(group)}</strong><p>${values.map(escapeHtml).join(' · ')}</p></div>`).join('')
   const languages = data.languages.map(([language, level]) => `${escapeHtml(language)} (${escapeHtml(level)})`).join(' · ')
 
@@ -69,6 +77,12 @@ export function generateCVPdf(data: Profile) {
       #cv-print-root small { color: #66635d; }
       #cv-print-root .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
       #cv-print-root .skills p { color: #66635d; font-size: 9pt; }
+      #cv-print-root .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 18px; }
+      #cv-print-root .project { margin: 0; padding: 10px 12px; border: 1px solid #d9d3c9; border-radius: 4px; page-break-inside: avoid; }
+      #cv-print-root .project-heading { margin-bottom: 3px; }
+      #cv-print-root .project b { color: #6a7460; font-size: 8.5pt; }
+      #cv-print-root .project p { color: #66635d; font-size: 8.5pt; }
+      #cv-print-root .project-link { color: #516248; font-size: 8.5pt; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
     }
   </style>
   <main class="cv-document">
@@ -77,6 +91,7 @@ export function generateCVPdf(data: Profile) {
     <h2>Experience</h2>${experience}
     <h2>Education</h2>${education}
     <h2>Expertise</h2><div class="skills">${skills}</div>
+    <h2>Selected Projects</h2><div class="projects">${projects}</div>
     <h2>Languages</h2><p>${languages}</p>
   </main>`
 
