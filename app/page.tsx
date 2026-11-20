@@ -133,12 +133,15 @@ export default function Page() {
               sizes="(max-width: 768px) 90vw, 440px"
             />
           </div>
-          <div className="portrait-note">
+          {/* <div className="portrait-note">
             Currently crafting digital
             <br />
             <strong>
               experiences at <u>My Room</u>
             </strong>
+          </div> */}
+          <div className="portrait-note">
+            Currently Jobless, open to new opportunities.😭🙏
           </div>
           <div className="scribble">✳</div>
         </motion.div>
