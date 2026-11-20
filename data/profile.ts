@@ -257,6 +257,7 @@ export const profile = {
       description:
         "Pelacak keuangan pribadi yang memanfaatkan Gemini AI untuk menganalisis pengeluaran dan memberikan saran pengelolaan uang yang cerdas." /*[cite: 3] */,
       color: "blue",
+      videoId: "C16Qe_TtQZA",
     },
     {
       number: "05",
