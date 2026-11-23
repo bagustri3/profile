@@ -1,0 +1,17 @@
+# Bagus Tri Prasetyo
+
+> Portfolio of Bagus Tri Prasetyo, a Fullstack Developer and Software Engineer in Bandung, Indonesia.
+
+## Website
+
+- [Portfolio](https://bagustri3.github.io/profile/)
+- [GitHub](https://github.com/bagustri3)
+- [LinkedIn](https://linkedin.com/in/bagustri3)
+
+## About
+
+The portfolio presents professional experience, education, technical skills, selected projects, and contact information.
+
+## Contact
+
+- Email: tribagus0510@gmail.com

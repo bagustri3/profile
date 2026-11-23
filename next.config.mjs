@@ -11,6 +11,10 @@ const nextConfig = {
     unoptimized: true,
   },
 
+  experimental: {
+    agentUpgrade: "security",
+  },
+
   output: "export",
 
   basePath: isProduction ? "/profile" : "",

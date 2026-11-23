@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Script from "next/script";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -31,6 +32,10 @@ const reveal = {
   hidden: { opacity: 0, y: 18 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
 };
+const portraitSrc =
+  process.env.NODE_ENV === "production"
+    ? "/profile/profile-portrait.webp"
+    : "/profile-portrait.webp";
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -126,7 +131,7 @@ export default function Page() {
         >
           <div className="portrait-frame">
             <Image
-              src="https://bagustri3.github.io/profile/profile-portrait.png"
+              src={portraitSrc}
               alt="Portrait of Bagus Tri Prasetyo"
               fill
               priority
@@ -289,6 +294,7 @@ export default function Page() {
                     title={`Video ${project.name} di YouTube`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
+                    loading="lazy"
                     allowFullScreen
                   />
                 </div>
@@ -401,6 +407,29 @@ export default function Page() {
             <Mail size={17} />
           </a>
         </div>
+        <Script id="histats-counter" strategy="afterInteractive">
+          {`var _Hasync = window._Hasync || [];
+window._Hasync = _Hasync;
+_Hasync.push(['Histats.start', '1,5065846,4,1032,150,25,00011111']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+_Hasync.push(['Histats.framed_page', '']);
+(function() {
+  var hs = document.createElement('script');
+  hs.type = 'text/javascript';
+  hs.async = true;
+  hs.src = '//s10.histats.com/js15_as.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();`}
+        </Script>
+        <noscript>
+          <a href="/" target="_blank">
+            <img
+              src="//sstatic1.histats.com/0.gif?5065846&101"
+              alt="web site hit counter"
+            />
+          </a>
+        </noscript>
       </footer>
     </main>
   );

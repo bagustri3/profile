@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bagustri3.github.io/profile/"),
+  metadataBase: new URL("https://bagustri3.github.io"),
   title: {
     default: "Bagus Tri Prasetyo — Fullstack Developer & Software Engineer",
     template: "%s | Bagus Tri Prasetyo",
@@ -34,30 +34,25 @@ export const metadata: Metadata = {
     siteName: "Bagus Tri Prasetyo",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/profile/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Bagus Tri Prasetyo — Fullstack Developer & Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bagus Tri Prasetyo — Fullstack Developer & Software Engineer",
     description:
       "Fullstack Developer and Software Engineer building thoughtful digital products.",
+    images: ["/profile/images/og-image.png"],
   },
-  generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/profile/icon.svg",
+    apple: "/profile/apple-icon.png",
   },
 };
 
@@ -66,6 +61,25 @@ export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Bagus Tri Prasetyo",
+  url: "https://bagustri3.github.io/profile/",
+  image: "https://bagustri3.github.io/profile/images/og-image.png",
+  jobTitle: "Fullstack Developer & Software Engineer",
+  email: "mailto:tribagus0510@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bandung",
+    addressCountry: "ID",
+  },
+  sameAs: [
+    "https://linkedin.com/in/bagustri3",
+    "https://github.com/bagustri3",
   ],
 };
 
@@ -80,6 +94,10 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="klCejhyn9kwQCDhoQN9CerHHLfqYhYWLAhodqgwQd5c"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body className="antialiased">{children}</body>
